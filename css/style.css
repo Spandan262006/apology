@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #000;
+}
+
+#bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+}
+
+#heading {
+  position: fixed;
+  top: 20px;
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+#startButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+#startButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+#startButton i {
+  color: white;
+  font-size: 24px;
+}
+
+.lyrics-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 1s ease;
+  width: 80%;
+  max-width: 800px;
+}
+
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  animation: float 15s linear infinite;
+  z-index: 5;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 3px 3px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+  z-index: 20;
+  position: relative;
+}
+
+#messageButton {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  color: white;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#messageButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .lyrics-container {
+    font-size: 1.5rem;
+  }
+  
+  .glass-card {
+    width: 90%;
+    padding: 20px;
+    font-size: 1rem;
+  }
+  
+  #startButton {
+    width: 50px;
+    height: 50px;
+  }
+  
+  #startButton i {
+    font-size: 20px;
+  }
+} 
